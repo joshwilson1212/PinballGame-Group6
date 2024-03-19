@@ -1,0 +1,34 @@
+{
+    "name": "Pinballinput",
+    "maps": [
+        {
+            "name": "Default",
+            "id": "665b3ad4-e880-4bda-9669-5f75473f7e55",
+            "actions": [
+                {
+                    "name": "Launch Ball",
+                    "type": "Button",
+                    "id": "fce466b7-3c08-4bb2-9888-152003fb5768",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e0ac9b6a-a999-4dcc-87ab-c2fb59d552eb",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Launch Ball",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
