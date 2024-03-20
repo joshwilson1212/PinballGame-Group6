@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Game : MonoBehaviour{
     //name might be slightly messed up but its lowercase
-    private Pinballinput input;
+    [HideInInspector] public Pinballinput input;
     public Ball ball;
     public Flipper RightFlipper;
     public Flipper LeftFlipper;
-    public bool LeftFlipper_up;
-    public bool RightFlipper_up;
+    
+
+    public static Game Instance { get; private set; }    
 
     // Start is called before the first frame update
-    void Start(){
+    void Awake(){
         input = new Pinballinput();
         input.Enable();
+        Instance = this;
         
     }
 
