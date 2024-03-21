@@ -7,10 +7,11 @@ public class Flipper : MonoBehaviour{
 
     private Rigidbody rb;
     public float force;
-    
+    AudioSource Flipper_Sound;
     void Start(){
         //gets the ridigbody component of rb
         rb = GetComponent<Rigidbody>();
+        Flipper_Sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -18,5 +19,6 @@ public class Flipper : MonoBehaviour{
     {
         //adds force to the flippert
         rb.AddForce(Vector3.forward * force, ForceMode.Impulse);
+        Flipper_Sound.Play();
     }
 }

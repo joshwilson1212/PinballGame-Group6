@@ -34,6 +34,10 @@ public class Game : MonoBehaviour{
 
         if (input.Default.LaunchBall.WasReleasedThisFrame()){
             ball.Launch();
+
+            //disables the  spacebar on first ball launch
+            Game.Instance.input.FindAction("Launch Ball").Disable();
+
         }
         else if(input.Default.RightFlipper.WasPressedThisFrame()){
             RightFlipper.Flip();

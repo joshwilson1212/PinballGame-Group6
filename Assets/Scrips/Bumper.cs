@@ -13,6 +13,7 @@ public class Bumper : MonoBehaviour{
     {
         //we get the Render Componnent and save it in ren
         ren = GetComponent<Renderer>();
+        Bumper_sound = GetComponent<AudioSource>();
         //time = 0;
     }
 
@@ -24,7 +25,6 @@ public class Bumper : MonoBehaviour{
     public void Bump() {
         //plays the bumper sound
         print("impact");
-        Bumper_sound = GetComponent<AudioSource>();
         Bumper_sound.Play(0);
     }
 }

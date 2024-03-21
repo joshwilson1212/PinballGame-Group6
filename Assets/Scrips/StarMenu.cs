@@ -12,6 +12,7 @@ public class StarMenu : MonoBehaviour
         //on program start it makes the menu active and disables input in the game object
         mainMenu.SetActive(true);
         Game.Instance.input.Disable();
+        
     }
 
     // Update is called once per frame
@@ -20,5 +21,6 @@ public class StarMenu : MonoBehaviour
         //hides the menu and enables input
         mainMenu.SetActive(false);
         Game.Instance.input.Enable();
+        
     }
 }
