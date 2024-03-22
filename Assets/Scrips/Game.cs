@@ -8,10 +8,8 @@ public class Game : MonoBehaviour{
     public Ball ball;
     public Flipper RightFlipper;
     public Flipper LeftFlipper;
-    public Bumper bumper;
-    public Bumper bumper2;
-    public Bumper bumper3;
-    public Bumper bumper4;
+    public BumperGone Bumpers_all;
+    private bool isGhost = false;
     
     //creates a instance of game
     public static Game Instance { get; private set; }    
@@ -34,28 +32,28 @@ public class Game : MonoBehaviour{
             RightFlipper.Flip();
         }
 
-
+        //launches the ball then disables the key for it disables the  spacebar on first ball launch
         if (input.Default.LaunchBall.WasReleasedThisFrame()){
             ball.Launch();
-
-            //disables the  spacebar on first ball launch
             Game.Instance.input.FindAction("Launch Ball").Disable();
-
         }
         else if(input.Default.RightFlipper.WasPressedThisFrame()){
             RightFlipper.Flip();
-            
         }
-        else if (input.Default.LeftFlipper.WasPressedThisFrame())
-        {
+        else if (input.Default.LeftFlipper.WasPressedThisFrame()){
             LeftFlipper.Flip();
         }
+        //this will turn on and off all bumper meshes with the G key
         else if (input.Default.Ghost.WasPressedThisFrame()){
-            //print("ghost key in game script");
-            bumper.Ghost();
-            bumper2.Ghost();
-            bumper3.Ghost();
-            bumper4.Ghost();
+            if (isGhost){
+                Bumpers_all.TurnOnMesh();
+                isGhost = false;
+            }
+            else{
+                Bumpers_all.TurnOffMesh();
+                isGhost = true;
+            }
+           
         }
 
     }

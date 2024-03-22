@@ -13,62 +13,45 @@ public class Ball : MonoBehaviour {
     public float launchforce;
     AudioSource Launch_Sound;
     [HideInInspector] public Pinballinput input;
-    public GameObject Deathzone;
-    public AudioSource Death;
+    public BallRestart Deathzone;
 
+    //we get the properys of the rigidbody and store them inside rb and do the same with launch sound but get the audio source component
     void Start(){
-        //we get the properys of the rigidbody and store them inside rb and do the same with launch sound but get the audio source component
+        
         rb = GetComponent<Rigidbody>();
         Launch_Sound = GetComponent<AudioSource>();
-        Death = GetComponent<AudioSource>();
-        
     }
+    //we add a force to the rb that has our launch force multiplied in
+    //we play the sound when this function is called
     public void Launch() {
-        //we add a force to the rb that has our launch force multiplied in
         rb.AddForce(Vector3.forward * launchforce, ForceMode.Impulse);
-        //we play the sound when this function is called
         Launch_Sound.Play();
-        
-        
 
     }
     //restart function used to resrart whole game after "losing"
-    public void Restart()
-    {
+    public void Restart(){
         transform.position = GameObject.FindWithTag("BallStart").transform.position;
         rb.velocity = Vector3.zero;
+
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        //if the object collided with has the ball restart tab then the following code will execute
-        //it will move the current object to the gameobject with the ballstart tag and change its position,zero velocity, and re enable the launch key
+    //if the object collided with has the ball restart tab then the following code will execute
+    //it will move the current object to the gameobject with the ballstart tag and change its position,zero velocity, and re enable the launch key
+    private void OnTriggerEnter(Collider other){
         if (other.CompareTag("BallRestart")){
             transform.position = GameObject.FindWithTag("BallStart").transform.position;
             rb.velocity = Vector3.zero;
             Game.Instance.input.FindAction("Launch Ball").Enable();
-            Death.Play();
-
+            Deathzone.play_sound();
+            
         }
-        
     }
-
-
+    //a bumper variable that detects if it has any collision with another object
+    //if the bumper has any collision then we run the Bump function
     private void OnCollisionEnter(Collision collision){
-        //a bumper variable that detects if it has any collision with another object
         var bumper = collision.gameObject.GetComponent<Bumper>();
-        
-        //if the bumper has any collision then we run the Bump function
-        if(bumper != null)
-        {
+        if(bumper != null){
             bumper.Bump();
         }
-        
-    }
-
-    
-    
-    void Update()
-    {
         
     }
 }
