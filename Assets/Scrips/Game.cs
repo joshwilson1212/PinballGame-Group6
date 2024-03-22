@@ -8,7 +8,10 @@ public class Game : MonoBehaviour{
     public Ball ball;
     public Flipper RightFlipper;
     public Flipper LeftFlipper;
-
+    public Bumper bumper;
+    public Bumper bumper2;
+    public Bumper bumper3;
+    public Bumper bumper4;
     
     //creates a instance of game
     public static Game Instance { get; private set; }    
@@ -46,6 +49,13 @@ public class Game : MonoBehaviour{
         else if (input.Default.LeftFlipper.WasPressedThisFrame())
         {
             LeftFlipper.Flip();
+        }
+        else if (input.Default.Ghost.WasPressedThisFrame()){
+            //print("ghost key in game script");
+            bumper.Ghost();
+            bumper2.Ghost();
+            bumper3.Ghost();
+            bumper4.Ghost();
         }
 
     }

@@ -53,6 +53,15 @@ public partial class @Pinballinput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ghost"",
+                    ""type"": ""Button"",
+                    ""id"": ""44d19970-ff3e-445e-9c2f-2b513c3fa3f0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -88,6 +97,17 @@ public partial class @Pinballinput: IInputActionCollection2, IDisposable
                     ""action"": ""LeftFlipper"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""828931b8-fd7a-45df-9df4-0a8983ecc009"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ghost"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -99,6 +119,7 @@ public partial class @Pinballinput: IInputActionCollection2, IDisposable
         m_Default_LaunchBall = m_Default.FindAction("Launch Ball", throwIfNotFound: true);
         m_Default_RightFlipper = m_Default.FindAction("RightFlipper", throwIfNotFound: true);
         m_Default_LeftFlipper = m_Default.FindAction("LeftFlipper", throwIfNotFound: true);
+        m_Default_Ghost = m_Default.FindAction("Ghost", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,6 +184,7 @@ public partial class @Pinballinput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Default_LaunchBall;
     private readonly InputAction m_Default_RightFlipper;
     private readonly InputAction m_Default_LeftFlipper;
+    private readonly InputAction m_Default_Ghost;
     public struct DefaultActions
     {
         private @Pinballinput m_Wrapper;
@@ -170,6 +192,7 @@ public partial class @Pinballinput: IInputActionCollection2, IDisposable
         public InputAction @LaunchBall => m_Wrapper.m_Default_LaunchBall;
         public InputAction @RightFlipper => m_Wrapper.m_Default_RightFlipper;
         public InputAction @LeftFlipper => m_Wrapper.m_Default_LeftFlipper;
+        public InputAction @Ghost => m_Wrapper.m_Default_Ghost;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -188,6 +211,9 @@ public partial class @Pinballinput: IInputActionCollection2, IDisposable
             @LeftFlipper.started += instance.OnLeftFlipper;
             @LeftFlipper.performed += instance.OnLeftFlipper;
             @LeftFlipper.canceled += instance.OnLeftFlipper;
+            @Ghost.started += instance.OnGhost;
+            @Ghost.performed += instance.OnGhost;
+            @Ghost.canceled += instance.OnGhost;
         }
 
         private void UnregisterCallbacks(IDefaultActions instance)
@@ -201,6 +227,9 @@ public partial class @Pinballinput: IInputActionCollection2, IDisposable
             @LeftFlipper.started -= instance.OnLeftFlipper;
             @LeftFlipper.performed -= instance.OnLeftFlipper;
             @LeftFlipper.canceled -= instance.OnLeftFlipper;
+            @Ghost.started -= instance.OnGhost;
+            @Ghost.performed -= instance.OnGhost;
+            @Ghost.canceled -= instance.OnGhost;
         }
 
         public void RemoveCallbacks(IDefaultActions instance)
@@ -223,5 +252,6 @@ public partial class @Pinballinput: IInputActionCollection2, IDisposable
         void OnLaunchBall(InputAction.CallbackContext context);
         void OnRightFlipper(InputAction.CallbackContext context);
         void OnLeftFlipper(InputAction.CallbackContext context);
+        void OnGhost(InputAction.CallbackContext context);
     }
 }

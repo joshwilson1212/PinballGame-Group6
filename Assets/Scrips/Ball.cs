@@ -13,12 +13,15 @@ public class Ball : MonoBehaviour {
     public float launchforce;
     AudioSource Launch_Sound;
     [HideInInspector] public Pinballinput input;
+    public GameObject Deathzone;
+    public AudioSource Death;
 
     void Start(){
         //we get the properys of the rigidbody and store them inside rb and do the same with launch sound but get the audio source component
         rb = GetComponent<Rigidbody>();
         Launch_Sound = GetComponent<AudioSource>();
-      
+        Death = GetComponent<AudioSource>();
+        
     }
     public void Launch() {
         //we add a force to the rb that has our launch force multiplied in
@@ -43,9 +46,12 @@ public class Ball : MonoBehaviour {
             transform.position = GameObject.FindWithTag("BallStart").transform.position;
             rb.velocity = Vector3.zero;
             Game.Instance.input.FindAction("Launch Ball").Enable();
+            Death.Play();
+
         }
         
     }
+
 
     private void OnCollisionEnter(Collision collision){
         //a bumper variable that detects if it has any collision with another object
@@ -58,6 +64,8 @@ public class Ball : MonoBehaviour {
         }
         
     }
+
+    
     
     void Update()
     {
