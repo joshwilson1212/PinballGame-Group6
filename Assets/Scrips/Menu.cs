@@ -36,5 +36,6 @@ public class Menu : MonoBehaviour
     {
         gameOverMenu.SetActive(false);
         Game.Instance.input.Enable();
+        Game.Instance.ResetScore();
     }
 }

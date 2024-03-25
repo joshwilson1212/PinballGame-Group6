@@ -17,6 +17,12 @@ public class Game : MonoBehaviour{
     public int CurScore {  get; private set; }
     public int HighScore { get; private set; }
 
+    /// <summary>
+    /// Used for setting and getting PlayerPrefs values.
+    /// Put any PlayerPrefs dictionary keys here
+    /// </summary>
+    
+
 
     void Awake(){
         //this runs on program launch and makes a new instance of pinball input and enables and then makes the instance equal to the current instance
@@ -30,7 +36,7 @@ public class Game : MonoBehaviour{
         // grab high score when game starts
 
         //FIX HERE
-        //HighScore = PlayerPrefs.GetInt(PlayerPrefs.highScore, 0);
+        HighScore = PlayerPrefs.GetInt("highScore", 0);
     }
 
     private void OnDisable()
@@ -39,7 +45,7 @@ public class Game : MonoBehaviour{
         // the high score
 
         //FIX HERE
-        //PlayerPrefs.SetInt(PlayerPrefs.HIGHSCORE, HighScore);
+        PlayerPrefs.SetInt("highScore", HighScore);
     }
 
     // this whole function is updated every frame and just checks if the certain key was pressed and will run the code inside if it has
@@ -84,6 +90,11 @@ public class Game : MonoBehaviour{
         {
             HighScore = CurScore;
         }
+    }
+
+    public void ResetScore() 
+    {
+        Game.Instance.CurScore = 0;
     }
 
 }
