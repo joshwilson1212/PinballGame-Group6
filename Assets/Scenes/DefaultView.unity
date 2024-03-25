@@ -439,10 +439,7 @@ MonoBehaviour:
   ball: {fileID: 2112042200}
   RightFlipper: {fileID: 784289114}
   LeftFlipper: {fileID: 1423317462}
-  bumper: {fileID: 0}
-  bumper2: {fileID: 0}
-  bumper3: {fileID: 0}
-  bumper4: {fileID: 0}
+  Bumpers_all: {fileID: 274517068}
 --- !u!1 &680716422
 GameObject:
   m_ObjectHideFlags: 0

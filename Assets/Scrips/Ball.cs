@@ -14,12 +14,21 @@ public class Ball : MonoBehaviour {
     AudioSource Launch_Sound;
     [HideInInspector] public Pinballinput input;
     public BallRestart Deathzone;
+    public bool Ghost = false;
+    private Renderer ren;
+    public Material[] material;
+
 
     //we get the properys of the rigidbody and store them inside rb and do the same with launch sound but get the audio source component
     void Start(){
-        
         rb = GetComponent<Rigidbody>();
         Launch_Sound = GetComponent<AudioSource>();
+
+
+        ren = GetComponent<Renderer>();
+        ren.enabled = true;
+        ren.sharedMaterial = material[0];
+
     }
     //we add a force to the rb that has our launch force multiplied in
     //we play the sound when this function is called
@@ -51,7 +60,26 @@ public class Ball : MonoBehaviour {
         var bumper = collision.gameObject.GetComponent<Bumper>();
         if(bumper != null){
             bumper.Bump();
+            rb.AddForce(Vector3.forward * launchforce, ForceMode.Impulse);
         }
         
     }
+
+    //this function will take care of the ball properties of ghost mode, just swaps materials with Transparen Material
+    public void SeeThrough()
+    {
+        if (Ghost){
+
+            ren.sharedMaterial = material[0];
+            Ghost=false;
+        }
+        else
+        {
+            ren.sharedMaterial = material[1];
+            Ghost=true;
+        }
+        
+       
+    }
+
 }
