@@ -10,14 +10,18 @@ public class Ball : MonoBehaviour {
 
     //rb is a Rigidbody object and we have Launchforce set to public so change the value form unit menu and then we make a AudioSource Instance
     private Rigidbody rb;
+    private int lives;
+    private const int MAX_LIVES = 1;
+
     public float launchforce;
     AudioSource Launch_Sound;
     [HideInInspector] public Pinballinput input;
     public BallRestart Deathzone;
+    public Menu menu;
 
     //we get the properys of the rigidbody and store them inside rb and do the same with launch sound but get the audio source component
     void Start(){
-        
+        lives = MAX_LIVES;
         rb = GetComponent<Rigidbody>();
         Launch_Sound = GetComponent<AudioSource>();
     }
@@ -32,7 +36,7 @@ public class Ball : MonoBehaviour {
     public void Restart(){
         transform.position = GameObject.FindWithTag("BallStart").transform.position;
         rb.velocity = Vector3.zero;
-
+        lives = MAX_LIVES;
     }
     //if the object collided with has the ball restart tab then the following code will execute
     //it will move the current object to the gameobject with the ballstart tag and change its position,zero velocity, and re enable the launch key
@@ -42,6 +46,12 @@ public class Ball : MonoBehaviour {
             rb.velocity = Vector3.zero;
             Game.Instance.input.FindAction("Launch Ball").Enable();
             Deathzone.play_sound();
+            lives--;
+            print($"number of lives: {lives}");
+            if (lives == 0)
+            {
+                menu.GameOver();
+            }
             
         }
     }
@@ -51,6 +61,8 @@ public class Ball : MonoBehaviour {
         var bumper = collision.gameObject.GetComponent<Bumper>();
         if(bumper != null){
             bumper.Bump();
+            print("bump");
+            Game.Instance.AddScore(10);
         }
         
     }

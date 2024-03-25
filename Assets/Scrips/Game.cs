@@ -8,19 +8,38 @@ public class Game : MonoBehaviour{
     public Ball ball;
     public Flipper RightFlipper;
     public Flipper LeftFlipper;
+
     public BumperGone Bumpers_all;
     private bool isGhost = false;
-    
-    //creates a instance of game
-    public static Game Instance { get; private set; }    
 
- 
+    //creates a instance of game
+    public static Game Instance { get; private set; }  
+    public int CurScore {  get; private set; }
+    public int HighScore { get; private set; }
+
+
     void Awake(){
         //this runs on program launch and makes a new instance of pinball input and enables and then makes the instance equal to the current instance
         input = new Pinballinput();
         input.Enable();
         Instance = this;
-        
+    }
+
+    public void Start()
+    {
+        // grab high score when game starts
+
+        //FIX HERE
+        //HighScore = PlayerPrefs.GetInt(PlayerPrefs.highScore, 0);
+    }
+
+    private void OnDisable()
+    {
+        // if game is disabled (for example if the player quits the game), save
+        // the high score
+
+        //FIX HERE
+        //PlayerPrefs.SetInt(PlayerPrefs.HIGHSCORE, HighScore);
     }
 
     // this whole function is updated every frame and just checks if the certain key was pressed and will run the code inside if it has
@@ -57,4 +76,14 @@ public class Game : MonoBehaviour{
         }
 
     }
+
+    public void AddScore(int amt)
+    {
+        CurScore += amt;
+        if (CurScore > HighScore)
+        {
+            HighScore = CurScore;
+        }
+    }
+
 }
