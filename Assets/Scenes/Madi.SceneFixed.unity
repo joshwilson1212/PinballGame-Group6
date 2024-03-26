@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.20150496, g: 0.072483644, b: 0.032007784, a: 1}
+  m_IndirectSpecularColor: {r: 0.20150459, g: 0.0724834, b: 0.032007836, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1690,7 +1690,7 @@ HingeJoint:
   m_Anchor: {x: -0.01, y: 0, z: 0.04}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.2683789, y: 2.863, z: -4.5310526}
+  m_ConnectedAnchor: {x: 1.2233788, y: 2.863, z: -4.4500513}
   serializedVersion: 2
   m_UseSpring: 1
   m_Spring:
@@ -3086,7 +3086,7 @@ Transform:
   m_GameObject: {fileID: 1665551684}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.44683748, z: -0, w: 0.8946152}
-  m_LocalPosition: {x: -0.04500003, y: 0, z: 0.44100046}
+  m_LocalPosition: {x: -0.36, y: 0, z: 0.44100046}
   m_LocalScale: {x: 9.449045, y: 9.449045, z: 87.23608}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3438,7 +3438,7 @@ Transform:
   m_GameObject: {fileID: 1791601341}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3585,7 +3585,7 @@ Transform:
   m_GameObject: {fileID: 1864995888}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.6466668, y: 0.01999998, z: -4.2933335}
+  m_LocalPosition: {x: 1.6466668, y: 0.01999998, z: -4.25}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3624,7 +3624,7 @@ HingeJoint:
   m_Anchor: {x: -0.01, y: 0, z: 0.04}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.2498689, y: 2.7519999, z: -4.4803343}
+  m_ConnectedAnchor: {x: -1.2948687, y: 2.7519999, z: -4.399334}
   serializedVersion: 2
   m_UseSpring: 1
   m_Spring:
@@ -4050,7 +4050,7 @@ Transform:
   m_GameObject: {fileID: 2385188398538978707}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.5178006, z: -0, w: 0.85550135}
-  m_LocalPosition: {x: -5.055, y: 0, z: 0.33100045}
+  m_LocalPosition: {x: -4.79, y: 0, z: 0.33100045}
   m_LocalScale: {x: 9.449046, y: 9.449045, z: 87.236084}
   m_ConstrainProportionsScale: 0
   m_Children: []
