@@ -16,6 +16,11 @@ public class Flipper : MonoBehaviour{
     //adds force to the flippert
     public void Flip(){
         rb.AddForce(Vector3.forward * force, ForceMode.Impulse);
-        Flipper_Sound.Play();
+
+        if (!Flipper_Sound.isPlaying)
+        {
+            Flipper_Sound.Play();
+        }
+        
     }
 }

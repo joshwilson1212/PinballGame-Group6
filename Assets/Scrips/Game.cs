@@ -78,6 +78,7 @@ public class Game : MonoBehaviour{
                 Bumpers_all.TurnOffMesh();
                 isGhost = true;
             }
+            ball.SeeThrough();
            
         }
 
