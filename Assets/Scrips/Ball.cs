@@ -67,11 +67,19 @@ public class Ball : MonoBehaviour {
     //if the bumper has any collision then we run the Bump function
     private void OnCollisionEnter(Collision collision){
         var bumper = collision.gameObject.GetComponent<Bumper>();
+        var target = collision.gameObject.GetComponent<Target>();
+
         if(bumper != null){
             bumper.Bump();
             print("bump");
             Game.Instance.AddScore(10);
             rb.AddForce(Vector3.forward * launchforce, ForceMode.Impulse);
+        }
+        else if (target != null) {
+            target.Bump();
+            print("target");
+            Game.Instance.AddScore(30);
+            // not adding force from a game design aspect because Targets shouldnt bounce the ball off
         }
         
     }
