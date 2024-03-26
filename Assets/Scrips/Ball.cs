@@ -49,7 +49,7 @@ public class Ball : MonoBehaviour {
     //if the object collided with has the ball restart tab then the following code will execute
     //it will move the current object to the gameobject with the ballstart tag and change its position,zero velocity, and re enable the launch key
     private void OnTriggerEnter(Collider other){
-        if (other.CompareTag("BallRestart")){
+        if (other.CompareTag("BallEnd")){
             transform.position = GameObject.FindWithTag("BallStart").transform.position;
             rb.velocity = Vector3.zero;
             Game.Instance.input.FindAction("Launch Ball").Enable();
