@@ -10,9 +10,9 @@ public class Ball : MonoBehaviour {
 
     //rb is a Rigidbody object and we have Launchforce set to public so change the value form unit menu and then we make a AudioSource Instance
     private Rigidbody rb;
-    private int lives;
     //public int Lives { get; private set; }
     private const int MAX_LIVES = 1;
+    public int lives;
 
     public float launchforce;
     AudioSource Launch_Sound;
@@ -20,11 +20,14 @@ public class Ball : MonoBehaviour {
     public BallRestart Deathzone;
     public Menu menu;
 
+    public static Ball Instance { get; private set; }
+
     //we get the properys of the rigidbody and store them inside rb and do the same with launch sound but get the audio source component
     void Start(){
         lives = MAX_LIVES;
         rb = GetComponent<Rigidbody>();
         Launch_Sound = GetComponent<AudioSource>();
+        Instance = this;
     }
     //we add a force to the rb that has our launch force multiplied in
     //we play the sound when this function is called

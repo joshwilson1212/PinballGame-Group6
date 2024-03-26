@@ -14,6 +14,6 @@ public class Lives : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //txt.text = Ball.lives.ToString();
+        txt.text = Ball.Instance.lives.ToString();
     }
 }

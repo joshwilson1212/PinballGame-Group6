@@ -35,6 +35,7 @@ public class Menu : MonoBehaviour
     public void Restart()
     {
         gameOverMenu.SetActive(false);
+        gameOverlay.SetActive(true);
         Game.Instance.input.Enable();
         Game.Instance.ResetScore();
     }
