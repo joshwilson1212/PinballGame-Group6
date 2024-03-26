@@ -42,11 +42,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1407109860647726664}
     m_Modifications:
+    - target: {fileID: 5681474756282237382, guid: 8709951bbf81b004481d5b37e6efab4a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7098878441171860258, guid: 8709951bbf81b004481d5b37e6efab4a,
         type: 3}
       propertyPath: m_Name
       value: G477Proj1GumDrop (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7448673296554663317, guid: 8709951bbf81b004481d5b37e6efab4a,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ecd5b8a36d01b824a986f90a483ab676, type: 3}
     - target: {fileID: 7624480886004277656, guid: 8709951bbf81b004481d5b37e6efab4a,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -242,10 +252,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1407109860647726664}
     m_Modifications:
+    - target: {fileID: 5681474756282237382, guid: 8709951bbf81b004481d5b37e6efab4a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7098878441171860258, guid: 8709951bbf81b004481d5b37e6efab4a,
         type: 3}
       propertyPath: m_Name
       value: G477Proj1GumDrop (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448673296554663317, guid: 8709951bbf81b004481d5b37e6efab4a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7624480886004277656, guid: 8709951bbf81b004481d5b37e6efab4a,
         type: 3}
@@ -369,10 +389,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1407109860647726664}
     m_Modifications:
+    - target: {fileID: 5681474756282237382, guid: 8709951bbf81b004481d5b37e6efab4a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7098878441171860258, guid: 8709951bbf81b004481d5b37e6efab4a,
         type: 3}
       propertyPath: m_Name
       value: G477Proj1GumDrop (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448673296554663317, guid: 8709951bbf81b004481d5b37e6efab4a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7624480886004277656, guid: 8709951bbf81b004481d5b37e6efab4a,
         type: 3}

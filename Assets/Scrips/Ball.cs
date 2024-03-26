@@ -10,9 +10,9 @@ public class Ball : MonoBehaviour {
 
     //rb is a Rigidbody object and we have Launchforce set to public so change the value form unit menu and then we make a AudioSource Instance
     private Rigidbody rb;
-    private int lives;
+    public int lives;
     //public int Lives { get; private set; }
-    private const int MAX_LIVES = 1;
+    private const int MAX_LIVES = 4;
     public float launchforce;
     AudioSource Launch_Sound;
     [HideInInspector] public Pinballinput input;
@@ -59,6 +59,7 @@ public class Ball : MonoBehaviour {
             if (lives == 0)
             {
                 menu.GameOver();
+                lives = MAX_LIVES;
             }
             
         }

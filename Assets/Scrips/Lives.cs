@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Lives : MonoBehaviour
 {
+    public Ball ball;
     private TextMeshProUGUI txt;
 
     private void Start() {
@@ -14,6 +15,6 @@ public class Lives : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //txt.text = Ball.lives.ToString();
+        txt.text = ball.lives.ToString();
     }
 }
